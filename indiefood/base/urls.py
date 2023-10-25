@@ -8,5 +8,7 @@ urlpatterns = [
 
     path('',views.homePage, name= "home" ),
     path('track-order',views.trackOrder, name= "track_order" ),
+    # temp
+    path('review',views.review, name= "review" ),
     
 ]
