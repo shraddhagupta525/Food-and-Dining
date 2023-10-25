@@ -7,5 +7,6 @@ from . import views
 urlpatterns = [
 
     path('',views.homePage, name= "home" ),
+    path('track-order',views.trackOrder, name= "track_order" ),
     
 ]
