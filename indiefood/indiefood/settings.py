@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "indiefood",
+    'base.apps.BaseConfig',
+    'indiefood',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,9 @@ ROOT_URLCONF = 'indiefood.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR / 'templates') 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,8 +124,8 @@ STATIC_URL='/static/'
 STATICFILES_DIRS=[
     BASE_DIR / "static"
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static/images')]
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,'static/images')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
