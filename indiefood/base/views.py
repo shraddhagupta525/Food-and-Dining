@@ -14,5 +14,8 @@ def homePage(request):
     return render(request, 'base/home.html')
 def trackOrder(request):
     return render(request, 'base/order_track.html')
+# temp
+def review(request):
+    return render(request, 'base/review.html')
 
 
