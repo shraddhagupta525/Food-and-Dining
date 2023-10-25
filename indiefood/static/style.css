@@ -1004,4 +1004,7 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
+.detail-box p{
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */
