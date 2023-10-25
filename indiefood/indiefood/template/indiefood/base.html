@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abc</title>
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <a href="">login/sign up</a>
+            <button>X</button>
+        </div>
+        <nav>
+            <ul class="menubar"> 
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="order tracking/reserve table.html">order tarcking/reserve table</a></li>
+                <li><a href="recipe sharing.html">recipe sharing</a></li>
+                <li><a href="review.html">review</a></li>
+                <li><a href="contact us.html">contact us</a></li>
+                <li><a href="about.html">about</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="footer-container-top">
+            <div>
+                <!-- contact -->
+                <p></p>
+                <br> 
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>snfjskn
+                <br>
+                <br>
+                <!-- opening hours -->
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- social links -->
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- quick access -->
+            </div>
+        </div>
+        <div>
+            <p style="text-align: center;">@IndieFood - TakeAway and Dining</p>
+        </div>
+
+    </footer>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+} 
+
+header{
+    border: 1px solid black;
+    background-color: white;
+    /* color: blue; */
+    text-align: center;
+    /* padding: 30px; */
+    /* margin: 30px; */
+
+}
+header nav{
+    padding: 25px;
+    background-color: black;
+}
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+ }  
+ nav ul li{
+    /* text-decoration: none; */
+    display: inline;
+    margin-right: 20px;
+ }
+ a{
+    text-decoration: none;
+    color: white;
+ }
+ .top-header{
+    border: 1px solid;
+    background-color: black;
+    text-align: right;
+    padding: 10px 50px;
+    /* float: right; */
+ } 
+ .top-header a{
+    color: white;
+ }
+footer{
+    height: 300px;
+    background-color: rgb(218, 118, 118);
+}
+.footer-container-top{
+    display: flex;
+    justify-content: center;
+}
+.footer-container-top div{
+    border: 1px solid;
+}
+        
+    
+</style>
