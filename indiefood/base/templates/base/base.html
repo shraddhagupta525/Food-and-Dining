@@ -40,6 +40,8 @@
   <link href="{% static 'style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static 'responsive.css' %}" rel="stylesheet" />
+  <!-- icons -->
+  <script src="https://kit.fontawesome.com/ccfa434540.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -47,17 +49,18 @@
             <a href="">login/sign up</a>
             <a href="" type="button" style="border: 1px solid white; padding: 2px 5px;">X</a>
         </div>
-        <nav>
+        <nav style="display: flex; justify-content: center;">
             <ul class="menubar"> 
-                <li><a href="home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="menu">Menu</a></li>
-                <li><a href="track-order">order tarcking/reserve table</a></li>
+                <li><a href="track-order">order tracking/reserve table</a></li>
                 <li><a href="recipe-sharing">recipe sharing</a></li>
                 <li><a href="review">review</a></li>
-                <li><a href="contact-us">contact us</a></li>
+                <li><a href="#contact">contact us</a></li>
                 <li><a href="about">about</a></li>
-            </ul>
-        </nav>
+              </ul>
+              <li><a href="cart"><i class="fa fa-shopping-cart"></i></a></li>
+            </nav>
     </header>
     {% block content %}
 
@@ -65,7 +68,7 @@
 
     
   <!-- footer section -->
-  <footer class="footer_section">
+  <footer class="footer_section" id="contact">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
@@ -146,6 +149,9 @@
 </html>
 
 <style>
+  *{
+    transition: ease-in 0.2s;
+  }
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -199,6 +205,15 @@ footer{
 .footer-container-top div{
     border: 1px solid;
 }
+
+li a{
+  padding: 20px;
+}
         
+li a:hover{
+  color: black;
+  background-color: white;
+  scale: 0.2;
+}
     
 </style>

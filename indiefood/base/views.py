@@ -17,5 +17,11 @@ def trackOrder(request):
 # temp
 def review(request):
     return render(request, 'base/review.html')
+def menu(request):
+    return render(request, 'base/menu.html')
+def recipeSharing(request):
+    return render(request, 'base/recipeSharing.html')
+def about(request):
+    return render(request, 'base/about.html')
 
 
