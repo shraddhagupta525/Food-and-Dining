@@ -46,7 +46,6 @@
 <body>
     <header>
         <div class="top-header">
-<<<<<<< HEAD
           {% if request.user.is_authenticated %}
           <a href="logout">logout</a>
           {% else %}
@@ -54,10 +53,6 @@
           {% endif %}
 
 
-=======
-
-            <a href="logout">login/sign up</a>
->>>>>>> 657c652937bf88292bce2df59c50a94d24f18106
             <a href="" type="button" style="border: 1px solid white; padding: 2px 5px;">X</a>
         </div>
         <nav style="display: flex; justify-content: space-between; align-items: center;">
@@ -205,11 +200,13 @@ header nav{
     color: white;
  }
  .top-header{
-    border: 1px solid;
-    background-color: black;
-    text-align: right;
-    padding: 10px 50px;
-    /* float: right; */
+  background-color: black;
+  /* text-align: right; */
+  display: flex;
+  /* padding: 10px 50px; */
+  /* float: right; */
+  justify-content: end;
+  align-items: center;
  } 
  .top-header a{
     color: white;

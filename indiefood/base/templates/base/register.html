@@ -10,10 +10,8 @@
     <title>Login | StudySync</title>
 </head>
 <body>
-    <div class="container" style="width: 40%; margin: 150px auto;">
-        <p class="back-box box1"></p>
-        <p class="back-box box2"></p>
-        <form method="POST" style="text-align: center; padding: 10px 20px; width: 60%; background: transparent;margin: 0px auto;">
+    <div class="container" style="width: 25%; margin: 150px auto; opacity: 0.8;">
+        <form method="POST" style="text-align: center; padding: 10px 0px; width: 80%; background: transparent;margin: 0px auto;">
             {% csrf_token %}
             <p style="font-weight: 700; font-size: 20px; margin: 15px auto;">Sign Up</p>
 
@@ -45,50 +43,10 @@
             
             <p style="text-align: left;">Already have an account? <a href="/login">Login</a></p>
 
-            <hr style="margin-top: 40px;">
-            <p style="margin: -11px auto 30px auto; background-color: white; width: fit-content; padding: 0px 15px;">Or Sign Up with</p>
-
-            
-        
-        
-            <button class="google-btn" id="google-sign-in-button">
-                <img src="/static/images/google-icon.png" width="15px" style="margin-bottom: 10px;" class="image-container">
-                <a href="" style="display: inline-block; color: rgba(246,129,33,255);" class="bold-text" >Sign in with Google</a>
-                
-            </button>
-
         </form>
     </div>
 </body>
 </html>
-<!-- 
-<script>
-    function verifyPassword() {  
-        var pw = document.getElementById("password1").value;  
-        var pw2 = document.getElementById("password2").value;  
-        //check empty password field  
-        if(pw == "") {  
-            document.getElementById("message").innerHTML = "**Fill the password please!";  
-            return false;  
-        }  
-        
-        //minimum password length validation  
-        if(pw.length < 6) {  
-            document.getElementById("message").innerHTML = "**Password length must be atleast 6 characters";  
-            return false;
-        }  
-        
-        //maximum length of password validation  
-        if(pw.length > 15) {  
-            document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
-            return false;  
-        } 
-        if(pw!=pw2){
-            document.getElementById("message").innerHTML = "**Password doesn't match";  
-            return false;
-        }  
-    }  
-</scrip> -->
 
 <style>
     /* theme color */
@@ -97,10 +55,20 @@
         padding: 0px;
         margin: 0px;
     }
-    body{
+    .container{
+        border-radius: 20px;
+        border: 1px solid;
+        color: black;
         background-color: white;
+    }
+    body{
+        background-image:url("https://t4.ftcdn.net/jpg/03/10/84/51/360_F_310845103_NCxWUhnSzdCGDUgoAwi4cMZk6hjWHhIV.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         overflow-x: hidden;
         overflow-y: hidden;
+        background-position-y:top;
     }
     label{
         display: block;
@@ -136,28 +104,6 @@
         border-radius: 15px;
         padding: 6px 12px;
         height: 40px;
-    }
-    .back-box{
-        position: absolute;
-        width: 450px;
-        height: 450px;
-        z-index: -1;
-        box-shadow: 0px 0px 30px;
-        transform: rotate(45deg);
-        overflow: hidden;
-        border-radius: 100px;
-        /* rotate: deg(90); */
-        background-image: linear-gradient(to right, rgba(246,129,33,255),rgba(246,110,33,255));
-    }
-    .box1{
-        top: 290px;
-        transform: rotate(35deg);
-        left: -120px;
-    }
-    .box2{
-        top: -50px;
-        transform: rotate(35deg);
-        right: -100px;
     }
     button:hover{
         cursor: pointer;
