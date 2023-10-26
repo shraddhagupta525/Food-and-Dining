@@ -19,7 +19,13 @@ def trackOrder(request):
         if request.POST['orderId'] != '':
             orderId=request.POST['orderId']
             order=orders.objects.filter(Q(id__icontains=orderId))
-            context={'orders': order}
+            print(order)
+            print("ebhdbf")
+            if order.count()==0:
+                messages=['Invalid order id']
+                context={'messages': messages}
+            else:
+                context={'orders': order}
             return render(request, 'base/order_track.html', context)
         else:
             try:
@@ -51,5 +57,8 @@ def recipeSharing(request):
     return render(request, 'base/recipeSharing.html')
 def about(request):
     return render(request, 'base/about.html')
+
+def cart(request):
+    return render(request, 'base/cart.html')
 
 

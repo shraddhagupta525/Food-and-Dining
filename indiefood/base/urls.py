@@ -13,6 +13,7 @@ urlpatterns = [
     path('menu',views.menu, name= "menu" ),
     path('recipe-sharing',views.recipeSharing, name= "recipeSharing" ),
     path('about',views.about, name= "about" ),
+    path('cart',views.cart, name= "cart" ),
     # path('home',views.homePage, name= "home" ),
     
 ]
