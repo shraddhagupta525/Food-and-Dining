@@ -23,3 +23,9 @@ class tables(models.Model):
 
     def __str__(self):
         return self.name
+    
+class menu(models.Model):
+    name=models.CharField(max_length=30)
+    price=models.CharField(max_length=10)
+    # photo=models.uplo(max_length=10)
+    upload_image=models.FileField(upload_to="media/",max_length=250,null=True,default=None)
