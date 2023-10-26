@@ -13,9 +13,9 @@
     <div class="container" style="width: 40%; margin: 150px auto;">
         <p class="back-box box1"></p>
         <p class="back-box box2"></p>
-        <form action="" method="POST" style="text-align: center; padding: 10px 20px; width: 60%; background: transparent;margin: 0px auto;">
+        <form method="POST" style="text-align: center; padding: 10px 20px; width: 60%; background: transparent;margin: 0px auto;">
             {% csrf_token %}
-            <p style="font-weight: 700; font-size: 20px; margin: 15px auto;">Login</p>
+            <p style="font-weight: 700; font-size: 20px; margin: 15px auto;">Sign Up</p>
 
             {% if messages %}
             <ul class="messages" style="list-style: none; color: red;">
@@ -24,43 +24,76 @@
                 {% endfor %}
             </ul>
             {% endif %}
+            <p>{{ formset.errors }} {{ formset.non_field_errors }}</p>
     
             <label for="email">Email id</label>
-            <input type="email" id="email" name="email" class="email">
+            <input type="email" id="email" name="email">
     
-            <label for="email">Password</label>
-            <input type="password" id="password1" name="password1" class="email">
+            <label for="password">Password</label>
+            <input type="password" id="password1" name="password1" placeholder="" required>
 
-    
-            <div style="display: flex; align-items: baseline; justify-content: space-between;">
-                <button type="submit" class="btn">Login</button>
-                <a href="">Forgot password?</a>
-            </div>
-            <p style="text-align: left;">Don't have an account? <a href="register">Create New</a></p>
+            <label for="password">Confirm Password</label>
+            <input type="password" id="password2" name="password2" placeholder="" required>
 
-            {% comment %} <hr style="margin-top: 40px;"> {% endcomment %}
-            {% comment %} <p style="margin: -11px auto 30px auto; background-color: white; width: fit-content; padding: 0px 15px;">Or Login with</p>
-
-            <button class="google-btn">
-                <img src="/static/images/google-icon.png" width="15px" style="margin-right: 5px;">
-                <p style="display: inline-block; color: rgba(246,129,33,255);"></p>
-            </button> {% endcomment %}
-            <hr style="margin-top: 40px;">
-            <p style="margin: -11px auto 30px auto; background-color: white; width: fit-content; padding: 0px 15px;">Or Sign In with</p>
+            <!-- <p id="message"></p> -->
 
             
-          
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+                <button type="submit" class="btn">Register</button>
+            </div>
+
+            
+            <p style="text-align: left;">Already have an account? <a href="/login">Login</a></p>
+
+            <hr style="margin-top: 40px;">
+            <p style="margin: -11px auto 30px auto; background-color: white; width: fit-content; padding: 0px 15px;">Or Sign Up with</p>
+
+            
+        
+        
+            <button class="google-btn" id="google-sign-in-button">
+                <img src="/static/images/google-icon.png" width="15px" style="margin-bottom: 10px;" class="image-container">
+                <a href="" style="display: inline-block; color: rgba(246,129,33,255);" class="bold-text" >Sign in with Google</a>
+                
+            </button>
 
         </form>
     </div>
 </body>
 </html>
+<!-- 
+<script>
+    function verifyPassword() {  
+        var pw = document.getElementById("password1").value;  
+        var pw2 = document.getElementById("password2").value;  
+        //check empty password field  
+        if(pw == "") {  
+            document.getElementById("message").innerHTML = "**Fill the password please!";  
+            return false;  
+        }  
+        
+        //minimum password length validation  
+        if(pw.length < 6) {  
+            document.getElementById("message").innerHTML = "**Password length must be atleast 6 characters";  
+            return false;
+        }  
+        
+        //maximum length of password validation  
+        if(pw.length > 15) {  
+            document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+            return false;  
+        } 
+        if(pw!=pw2){
+            document.getElementById("message").innerHTML = "**Password doesn't match";  
+            return false;
+        }  
+    }  
+</scrip> -->
 
 <style>
     /* theme color */
     /* rgba(246,129,33,255) */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-     *{
+    *{
         padding: 0px;
         margin: 0px;
     }
@@ -140,20 +173,7 @@
         margin-top: 10px;
     }
 
-
-    @media (max-width:1200px){
-    .back-box p{ 
-        height:50px; 
-    }
-}
-@media (max-width:767px){
-    .btn input{ 
-        height:40px; 
-    }
-}
-
-
-@keyframes shake {
+    @keyframes shake {
         0% {
             transform: translateX(0);
         }
@@ -175,7 +195,9 @@
     form:hover {
         animation: shake 0.4s;
     }
+
     
+   
 
 
     /* google copied
