@@ -2,5 +2,244 @@
 {% load static %}
 {% block content %}
 
+<div style="width: 100%;">
+    <p style="margin: 30px auto; text-align: center; font-size: 30px;">Cart</p>
+</div>
+<div>
+    <div class="cart-container">
+        <div class="cart-items">
+            <div class="item-card">
+                <img src="{% static 'images/f1.jpeg' %}" alt="">
+                <div>
+                    <p>Paneer Tikka</p>
+                    <p>#1234</p>
+                </div>
+                <div class="input-group plus-minus-input" style="width: 150px;">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <input class="input-group-field" type="number" name="quantity" value="0">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <p>&#8377 25</p>
+                  </div>
+                  <button>X</button>
+            </div>
+            <div class="item-card">
+                <img src="{% static 'images/f1.jpeg' %}" alt="">
+                <div>
+                    <p>Paneer Tikka</p>
+                    <p>#1234</p>
+                </div>
+                <div class="input-group plus-minus-input" style="width: 150px;">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <input class="input-group-field" type="number" name="quantity" value="0">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <p>&#8377 25</p>
+                  </div>
+                  <button>X</button>
+            </div>
+            <div class="item-card">
+                <img src="{% static 'images/f1.jpeg' %}" alt="">
+                <div>
+                    <p>Paneer Tikka</p>
+                    <p>#1234</p>
+                </div>
+                <div class="input-group plus-minus-input" style="width: 150px;">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <input class="input-group-field" type="number" name="quantity" value="0">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <p>&#8377 25</p>
+                  </div>
+                  <button>X</button>
+            </div>
+            <div class="item-card">
+                <img src="{% static 'images/f1.jpeg' %}" alt="">
+                <div>
+                    <p>Paneer Tikka</p>
+                    <p>#1234</p>
+                </div>
+                <div class="input-group plus-minus-input" style="width: 150px;">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <input class="input-group-field" type="number" name="quantity" value="0">
+                    <div class="input-group-button">
+                      <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <p>&#8377 25</p>
+                  </div>
+                  <button>X</button>
+            </div>
+        </div>
+        <div class="payment">
+            <p>Price: &#8377 649</p>
+            <p>Discount: &#8377 150</p>
+            <p>Total: &#8377 499</p>
+            <p>Have Coupon?</p>
+            <div style="display: flex;">
+                <input type="text">
+                <button class="apply-btn">Apply</button>
+            </div>
+            <button class="pay-btn">Pay Now</button>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
+
+<style>
+    .apply-btn{
+        border-radius: 0px;
+        background-color: lightskyblue;
+        border: none;
+    }
+    .pay-btn{
+        border-radius: 15px;
+        padding: 0px 20px;
+    }
+    .payment{
+        border: 1px solid;
+        width: 300px;
+        height: 450px;
+        /* display: flex;
+        justify-content: space-between; */
+        /* border: 1px solid; */
+        box-shadow: 0px 0px 10px rgb(184, 183, 183);
+        border-radius: 15px;
+        margin: 10px auto;
+        padding: 10px 30px;
+        align-items: center;
+    }
+    .cart-container{
+        padding: 10px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cart-items{
+        margin: 10px auto;
+    }
+    .item-card{
+        display: flex;
+        justify-content: space-between;
+        /* border: 1px solid; */
+        box-shadow: 0px 0px 10px rgb(184, 183, 183);
+        border-radius: 15px;
+        width: 900px;
+        margin: 10px auto;
+        padding: 10px 30px;
+        align-items: center;
+    }
+    .item-card img{
+        width: 80px;
+        height: 80px;
+    }
+    button{
+        border-radius: 50%;
+    }
+    
+.plus-minus-input {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.plus-minus-input .input-group-field {
+  text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  /* padding: 1rem; */
+  width: 30px;
+}
+
+.plus-minus-input .input-group-field::-webkit-inner-spin-button,
+.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.plus-minus-input .input-group-button .circle {
+  border-radius: 50%;
+  /* padding: 0.25em 0.8em; */
+}
+
+
+</style>
+
+<script>
+    jQuery(document).ready(function(){
+    // This button will increment the value
+    $('[data-quantity="plus"]').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('data-field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If is not undefined
+        if (!isNaN(currentVal)) {
+            // Increment
+            $('input[name='+fieldName+']').val(currentVal + 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+    // This button will decrement the value till 0
+    $('[data-quantity="minus"]').click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('data-field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If it isn't undefined or its greater than 0
+        if (!isNaN(currentVal) && currentVal > 0) {
+            // Decrement one
+            $('input[name='+fieldName+']').val(currentVal - 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+});
+
+
+</script>
 
 {% endblock content %}
