@@ -1,6 +1,12 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block content %}
+
+<style>
+  .filter_menu li a{
+    color: black !important;
+  }
+</style>
 <!-- food section -->
 
 <section class="food_section layout_padding-bottom">
@@ -12,483 +18,42 @@
     </div>
 
     <ul class="filters_menu">
-      <li class="active" data-filter="*">All</li>
-      <li data-filter=".starter">Starter</li>
-      <li data-filter=".maincourse">Maincourse</li>
-      <li data-filter=".drinks">Drinks</li>
-      <li data-filter=".desserts">Desserts</li>
+      <li><a style="color: black;" class="active" href="{% url 'menu' %}?q=all">All</a></li>
+      <li><a style="color: black;" href="{% url 'menu' %}?q=starter">Starter</a></li>
+      <li><a style="color: black;" href="{% url 'menu' %}?q=maincourse">Maincourse</a></li>
+      <li><a style="color: black;" href="{% url 'menu' %}?q=drinks">Drinks</a></li>
+      <li><a style="color: black;" href="{% url 'menu' %}?q=deserts">Desserts</a></li>
     </ul>
+    <!-- for loop -->
 
     <div class="filters-content">
       <div class="row grid">
+        {% for menu in menus %}
         <div class="col-sm-6 col-lg-4 all pizza">
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="{% static 'images/f1.jpeg' %}" alt="">
+                <img src="/media/{{ menu.upload_image }}" alt="">
               </div>
               <div class="detail-box">
-                <h5>
-                  Paneer Tikka
-                </h5>
-                <p>
-                Paneer Tikka is a indian dish made from chunks of paneer marinated in spices and grilled in a tandoor.
-                </p>
+                <h5>{{ menu.name }}</h5>
+                <p>Paneer Tikka is a indian dish made from chunks of paneer marinated in spices and grilled in a tandoor.</p>
                 <div class="options">
-                  <h6>
-                  INR 199
-                  </h6>
+                  <h6>{{ menu.price }}</h6>
                   <select name="" id="">
                     <option value="">Spiciness</option>
                     <option value="">Low</option>
                     <option value="">Medium</option>
                     <option value="">High</option>
                   </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
+                  <!-- <a href="{% url 'additem' %}?q={{menu.id}}"><i class="fa fa-shopping-cart"></i></a> -->
+                  <a ><i class="fa fa-shopping-cart"></i></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f2.jpeg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Samosa
-                </h5>
-                <p>
-                  A samosa is a fried Asian pastry with a savoury filling, including ingredients such as spiced potatoes, onions, peas.
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 49 (2 pcs)
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all pizza">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f3.jpg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Dosa
-                </h5>
-                <p>
-                  A dosa is a cooked flat thin layered rice batter, originating from South India, made from a fermented batter.
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 110
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all pasta">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f4.jpeg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                Vada Pav
-                </h5>
-                <p>
-                  Vada Pav is a savory and spicy soft dinner rolls or fluffy buns, referred to as Pav, stuffed with a fried batter coated potato dumpling fritter called Batata Vada and laced with spicy and sweet chutneys
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 99 (3 pcs)
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all fries">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f5.jpg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                Pani puri
-                </h5>
-                <p>
-                Pani Puri is a popular bite-size chaat consisting of a hollow, crispy-fried puffed ball that is filled with potato, chickpeas, onions, spices, and flavoured water, usually tamarind or mint, and popped into one's mouth whole.
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 50 (6 pcs)
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all pizza">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f6.jpeg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                Veg Soup
-                </h5>
-                <p>
-                  Vegetable soup is prepared using vegetables, leafy greens, mushrooms, and roots as the main ingredients. Some fruits, such as tomato and squash, are considered vegetables in such a context.
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 80
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f7.jpeg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Hyderabad Veg Biriyani
-                </h5>
-                <p>
-                  It is an aromatic rice dish made with basmati rice, mix veggies, herbs & biryani spices. This easy Veg Biryani is a total crowd pleaser! You will love this for everything from busy night meals to holiday family dinners
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 280
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f8.jpg' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Paneer Kadhai
-                </h5>
-                <p>
-                it is an Indian dish made by cooking paneer and bell peppers in a fragrant, freshly ground spice powder. It is usually served with buttered naan, paratha, roti, jeera rice, or steamed basmati rice.
-                </p>
-                <div class="options">
-                  <h6>
-                    INR 220
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 all pasta">
-          <div class="box">
-            <div>
-              <div class="img-box">
-                <img src="{% static 'images/f9.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Daal Makhani
-                </h5>
-                <p>
-                Daal Makhani is a dish originating in Punjab region. A relatively modern variation of traditional lentil dishes, it is made with black lentil and other pulses, and includes butter and cream
-                </p>
-                <div class="options">
-                  <h6>
-                  INR 180
-                  </h6>
-                  <select name="" id="">
-                    <option value="">Spiciness</option>
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                  </select>
-                  <a href="">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                       C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                       c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <div class="btn-box">

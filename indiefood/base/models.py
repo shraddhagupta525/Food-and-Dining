@@ -28,5 +28,7 @@ class menu(models.Model):
     name=models.CharField(max_length=30)
     price=models.CharField(max_length=10)
     type=models.CharField(max_length=20)
-    # photo=models.uplo(max_length=10)
     upload_image=models.FileField(upload_to="media/",max_length=250,null=True,default=None)
+
+class cart(models.Model):
+    itemId=models.IntegerField()

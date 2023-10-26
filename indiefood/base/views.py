@@ -5,8 +5,8 @@ from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from base.models import orders, tables 
+# from django.contrib.auth.forms import UserCreationForm
+from base.models import orders, tables , menu, cart
 # from .models import orders
 from .forms import userForm
 #from .models import orders 
@@ -57,9 +57,35 @@ def trackOrder(request):
 def review(request):
     return render(request, 'base/review.html')
 
+
+
+
+
 @login_required(login_url='login')
-def menu(request):
-    return render(request, 'base/menu.html')
+def menuPage(request):
+    q=request.GET.get('q') if request.GET.get('q')!=None else ''
+    if q=="all":
+        menus=menu.objects.all()
+        context={'menus': menus}
+        return render(request, 'base/menu.html', context)
+    menus=menu.objects.filter(Q(type__icontains=q))
+
+    # if not menus:
+
+    context={'menus': menus}
+    return render(request, 'base/menu.html', context)
+
+# def additem(request):
+#     q=request.GET.get('q') if request.GET.get('q')!=None else ''
+#     print(q)
+#     menus=menu.objects.filter(Q(id__icontains=q))
+#     print(menus[0].id)
+#     cartitem=cart()
+#     cartitem.save()
+#     return redirect('menu')
+
+
+
 
 @login_required(login_url='login')
 def recipeSharing(request):

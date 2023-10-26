@@ -10,7 +10,8 @@ urlpatterns = [
     path('track_order',views.trackOrder, name= "track_order" ),
     # temp
     path('review',views.review, name= "review" ),
-    path('menu',views.menu, name= "menu" ),
+    path('menu',views.menuPage, name= "menu" ),
+    # path('additem',views.additem, name= "additem" ),
     path('recipe-sharing',views.recipeSharing, name= "recipeSharing" ),
     path('about',views.about, name= "about" ),
     path('cart',views.cart, name= "cart" ),
