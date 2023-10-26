@@ -2,20 +2,34 @@
 {% load static %}
 {% block content %}
 <form action="" method="POST">
+  {% csrf_token %}
     <div>
         <div class="heading_container">
             <h2>
             Order traking
             </h2>
           </div>
-        <p>**Order Update</p>
-        <input type="number" placeholder="Order Id" name="" id="">
-        <div class="btn_box">
+          <input type="number" name="orderId" placeholder="Order Id" name="" id="">
+          <div class="btn_box">
             <button>
               Track
             </button>
           </div>
-    </div>
+        </div>
+        {% if orders %}
+        <ul class="messages" style="list-style: none; color: red;">
+            {% for order in orders %}
+            <li>{{ order.status }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if messages %}
+        <ul class="messages" style="list-style: none; color: red;">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     <section class="book_section layout_padding">
         <div class="container">
           <div class="heading_container">
@@ -28,35 +42,48 @@
               <div class="form_container">
                 <form action="">
                   <div>
-                    <input type="text" class="form-control" placeholder="Your Name" />
+                    <input name="name" type="text" class="form-control" placeholder="Your Name" />
                   </div>
                   <div>
-                    <input type="text" class="form-control" placeholder="Phone Number" />
+                    <input name="phone" type="text" class="form-control" placeholder="Phone Number" />
                   </div>
                   <div>
-                    <input type="email" class="form-control" placeholder="Your Email" />
+                    <input name="email" type="email" class="form-control" placeholder="Your Email" />
                   </div>
                   <div>
-                    <select class="form-control nice-select wide">
-                      <option value="" disabled selected>
+                    <select class="form-control nice-select wide" name="noofpersons">
+                      <option value="none" disabled selected>
                         How many persons?
                       </option>
-                      <option value="">
+                      <option value="2">
                         2
                       </option>
-                      <option value="">
+                      <option  value="3">
                         3
                       </option>
-                      <option value="">
+                      <option value="4">
                         4
                       </option>
-                      <option value="">
+                      <option value="5">
                         5
                       </option>
                     </select>
                   </div>
                   <div>
-                    <input type="date" class="form-control">
+                    <select name="tabletype" class="form-control nice-select wide">
+                      <option value="" disabled selected>
+                        Table Type
+                      </option>
+                      <option value="Normal">
+                        Normal
+                      </option>
+                      <option value="Chef">
+                        Chef
+                      </option>
+                    </select>
+                  </div>
+                  <div>
+                    <input name="date" type="date" class="form-control">
                   </div>
                   <div class="btn_box">
                     <button>
