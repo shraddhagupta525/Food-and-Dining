@@ -49,7 +49,8 @@
             <a href="">login/sign up</a>
             <a href="" type="button" style="border: 1px solid white; padding: 2px 5px;">X</a>
         </div>
-        <nav style="display: flex; justify-content: center;">
+        <nav style="display: flex; justify-content: space-between; align-items: center;">
+          <img src="{% static 'images/f21.png'%}" alt="" class="header-logo">
             <ul class="menubar"> 
                 <li><a href="/">Home</a></li>
                 <li><a href="menu">Menu</a></li>
@@ -151,6 +152,12 @@
 <style>
   *{
     transition: ease-in 0.2s;
+  }
+  .header-logo{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-right: 100px;
   }
 body {
     font-family: Arial, sans-serif;
