@@ -6,11 +6,13 @@ from django.shortcuts import render, redirect
 # from django.contrib.auth import authenticate, login, logout 
 # from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.forms import UserCreationForm
-# from base.models import Courses, files ,Syllabus
+from base.models import orders
 # from .forms import userForm
 #from .models import orders 
 
 def homePage(request):
+    order=orders.objects.all()
+    print(order)
     return render(request, 'base/home.html')
 def trackOrder(request):
     return render(request, 'base/order_track.html')
